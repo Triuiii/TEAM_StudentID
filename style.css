@@ -1,0 +1,384 @@
+/* =====================================================
+   FORMA — STUDENT ID CARD GENERATOR
+   Premium black / champagne / warm ivory visual system
+   HTML + CSS only. No JavaScript.
+===================================================== */
+
+:root {
+  --bg: #090a0b;
+  --panel: #111314;
+  --panel-soft: #171a19;
+  --text: #f3f0e8;
+  --muted: #999b94;
+  --line: rgba(239, 231, 210, .12);
+  --gold: #c7a96b;
+  --gold-light: #e2cc9b;
+  --max: 1180px;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; scroll-padding-top: 90px; }
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: "DM Sans", sans-serif;
+  line-height: 1.65;
+  overflow-x: hidden;
+}
+a { color: inherit; text-decoration: none; }
+button, input { font: inherit; }
+::selection { background: var(--gold); color: #111; }
+
+.topbar {
+  min-height: 78px;
+  padding: 0 max(5.5%, calc((100% - var(--max)) / 2));
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 28px;
+  border-bottom: 1px solid var(--line);
+  background: rgba(9,10,11,.92);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  backdrop-filter: blur(16px);
+}
+.brand { display: inline-flex; align-items: center; gap: 11px; font: 800 13px "Manrope", sans-serif; letter-spacing: 2.4px; }
+.brand-symbol {
+  width: 32px; height: 32px; display: grid; place-items: center;
+  border: 1px solid var(--gold); color: var(--gold-light);
+  font: 700 17px "Manrope", sans-serif;
+}
+.brand-period { color: var(--gold); }
+.navigation { display: flex; align-items: center; gap: clamp(16px, 3vw, 36px); }
+.navigation a, .top-cta { color: var(--muted); font-size: 11px; transition: color .2s; }
+.navigation a:hover, .top-cta:hover { color: var(--gold-light); }
+.top-cta { color: var(--gold-light); border: 1px solid rgba(199,169,107,.45); padding: 10px 14px; }
+.top-cta span { padding-left: 12px; }
+
+.page-shell, .section-shell { max-width: var(--max); margin: auto; padding-left: 28px; padding-right: 28px; }
+.hero {
+  min-height: 690px; display: grid; grid-template-columns: 1.05fr .95fr;
+  align-items: center; gap: 55px; position: relative; padding-top: 75px; padding-bottom: 100px;
+}
+.hero::before {
+  content: ""; position: absolute; width: 520px; height: 520px; right: 1%; top: 8%;
+  background: radial-gradient(circle, rgba(180,145,82,.12), transparent 68%);
+  pointer-events: none; z-index: -1;
+}
+.eyebrow { color: var(--gold); font-size: 9px; letter-spacing: 2.4px; font-weight: 700; }
+.eyebrow-line { display: inline-block; width: 27px; height: 1px; background: var(--gold); vertical-align: middle; margin-right: 9px; }
+.hero h1 { font: 600 clamp(54px, 7vw, 88px)/.99 "Manrope", sans-serif; letter-spacing: -5px; margin: 28px 0 23px; }
+.hero h1 span, .intro-grid h2 span, .section-heading h2 span, .note-box h2 span { color: var(--gold-light); }
+.hero-description { color: var(--muted); font-size: 14px; max-width: 465px; line-height: 1.9; }
+.hero-actions { display: flex; align-items: center; gap: 28px; margin-top: 34px; }
+.button { display: inline-flex; align-items: center; gap: 24px; padding: 13px 17px; font-size: 11px; font-weight: 700; transition: transform .2s, background .2s; }
+.button:hover { transform: translateY(-3px); }
+.button-gold { background: var(--gold); color: #12120f; }
+.button-gold:hover { background: var(--gold-light); }
+.text-link { color: var(--muted); font-size: 11px; }
+.text-link span { color: var(--gold); padding-left: 7px; }
+.hero-stats { display: flex; gap: 45px; margin-top: 65px; padding-top: 22px; border-top: 1px solid var(--line); max-width: 410px; }
+.hero-stats div { display: flex; flex-direction: column; }
+.hero-stats strong { font: 700 17px "Manrope"; color: var(--text); }
+.hero-stats span { color: var(--muted); font-size: 9px; letter-spacing: 1px; text-transform: uppercase; }
+
+.hero-art { min-height: 420px; display: grid; place-items: center; position: relative; }
+.orbit { position: absolute; border: 1px solid rgba(199,169,107,.18); border-radius: 50%; transform: rotate(-28deg); }
+.orbit-one { width: 490px; height: 230px; }
+.orbit-two { width: 390px; height: 360px; transform: rotate(45deg); border-color: rgba(199,169,107,.11); }
+.id-card {
+  width: min(100%, 390px); min-height: 245px; position: relative; z-index: 1;
+  background: linear-gradient(135deg, #202321, #111412 72%);
+  border: 1px solid rgba(226,204,155,.48); padding: 22px;
+  box-shadow: 0 30px 90px rgba(0,0,0,.5);
+  overflow: hidden;
+}
+.id-card::after { content: "F"; position: absolute; right: 12px; bottom: -90px; font: 800 250px "Manrope"; color: rgba(199,169,107,.045); pointer-events: none; }
+.id-card-top, .institution-lockup { display: flex; align-items: center; gap: 10px; }
+.college-emblem, .small-emblem { width: 34px; height: 34px; display: grid; place-items: center; border: 1px solid var(--gold); color: var(--gold-light); font: 700 16px "Manrope"; }
+.college-heading { display: flex; flex-direction: column; line-height: 1.4; }
+.college-heading strong, .institution-lockup b { font: 700 9px "Manrope"; letter-spacing: 1px; }
+.college-heading span, .institution-lockup small { color: var(--muted); font-size: 6px; letter-spacing: 1.1px; }
+.card-label { margin-left: auto; color: var(--gold); font-size: 7px; letter-spacing: 1.5px; }
+.hero-card-body { display: flex; gap: 19px; align-items: center; margin: 24px 0 20px; }
+.photo-placeholder { width: 93px; height: 108px; flex: 0 0 93px; display: grid; place-items: center; border: 1px dashed rgba(226,204,155,.55); color: var(--gold); font-size: 9px; letter-spacing: 2px; background: rgba(255,255,255,.025); }
+.hero-card-details { display: flex; flex-direction: column; gap: 3px; }
+.hero-card-details strong { font: 700 15px "Manrope"; margin-bottom: 6px; }
+.hero-card-details b { font-size: 9px; font-weight: 500; margin-bottom: 5px; }
+.mini-label, .field-label { color: var(--gold); font-size: 7px; letter-spacing: 1.4px; font-weight: 700; }
+.id-card-footer, .student-card-bottom { display: flex; justify-content: space-between; padding-top: 10px; border-top: 1px solid var(--line); color: var(--muted); font-size: 7px; letter-spacing: 1.2px; }
+.footer-mark { color: var(--gold); }
+.floating-note { position: absolute; z-index: 2; bottom: 24px; right: 0; background: #191d1a; border: 1px solid var(--line); padding: 11px 15px; color: var(--text); font-size: 9px; letter-spacing: .4px; }
+.note-dot { display: inline-block; width: 6px; height: 6px; border-radius: 50%; background: var(--gold); margin-right: 8px; }
+.art-index { position: absolute; left: 1%; bottom: 18px; color: #65675f; font-size: 8px; letter-spacing: 2px; }
+.scroll-indicator { position: absolute; bottom: 28px; left: 28px; color: var(--muted); font-size: 8px; letter-spacing: 2px; display: flex; align-items: center; gap: 10px; }
+.scroll-indicator span { width: 28px; height: 1px; background: var(--gold); }
+
+.intro-section, .cards-section, .team-section { border-top: 1px solid var(--line); padding-top: 75px; padding-bottom: 90px; }
+.section-topline { display: flex; justify-content: space-between; color: #73766e; font-size: 8px; letter-spacing: 1.8px; padding-bottom: 32px; border-bottom: 1px solid var(--line); }
+.intro-grid { display: grid; grid-template-columns: 1fr .8fr; gap: 12%; padding: 55px 0 65px; }
+.intro-grid h2, .section-heading h2, .note-box h2 { font: 600 clamp(34px, 4.4vw, 52px)/1.15 "Manrope"; letter-spacing: -2px; }
+.intro-copy p { color: var(--muted); font-size: 13px; line-height: 1.9; margin-bottom: 16px; }
+.feature-grid { display: grid; grid-template-columns: repeat(3, 1fr); border: 1px solid var(--line); }
+.feature { min-height: 205px; padding: 25px; position: relative; border-right: 1px solid var(--line); }
+.feature:last-child { border-right: 0; }
+.feature-number { position: absolute; right: 23px; top: 23px; color: #62655e; font-size: 9px; }
+.feature-icon { color: var(--gold); font-size: 24px; margin-bottom: 23px; }
+.feature h3 { font: 600 15px "Manrope"; margin-bottom: 9px; }
+.feature p { color: var(--muted); font-size: 11px; line-height: 1.8; max-width: 260px; }
+
+.cards-section { background: linear-gradient(180deg, transparent, rgba(199,169,107,.025)); }
+.section-heading { display: flex; justify-content: space-between; align-items: end; gap: 30px; margin: 45px 0 34px; }
+.section-heading h2 { margin-top: 12px; }
+.section-description { color: var(--muted); max-width: 340px; font-size: 11px; line-height: 1.8; }
+.student-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px; }
+.student-card {
+  background: linear-gradient(145deg, #1b201d, #101311 75%);
+  border: 1px solid rgba(199,169,107,.36);
+  padding: 22px; position: relative; overflow: hidden;
+  min-height: 260px; box-shadow: 0 16px 45px rgba(0,0,0,.18);
+}
+.student-card::after { content: ""; position: absolute; width: 180px; height: 180px; border: 1px solid rgba(199,169,107,.09); border-radius: 50%; right: -75px; bottom: -100px; }
+.student-card-head { display: flex; justify-content: space-between; align-items: center; padding-bottom: 16px; border-bottom: 1px solid var(--line); }
+.institution-lockup { gap: 9px; }
+.small-emblem { width: 29px; height: 29px; font-size: 13px; }
+.institution-lockup div { display: flex; flex-direction: column; line-height: 1.5; }
+.institution-lockup b { font-size: 8px; }
+.institution-lockup small { font-size: 6px; }
+.serial { color: var(--gold); font-size: 8px; letter-spacing: 1px; }
+.student-card-main { display: flex; gap: 18px; align-items: center; padding: 20px 0; }
+.student-photo { width: 90px; height: 105px; flex: 0 0 90px; display: grid; place-items: center; text-align: center; border: 1px dashed rgba(226,204,155,.5); background: rgba(255,255,255,.025); color: var(--gold); font-size: 8px; letter-spacing: 1.5px; }
+.student-data { min-width: 0; display: flex; flex-direction: column; align-items: flex-start; gap: 2px; }
+.student-data h3 { font: 700 16px "Manrope"; margin: 1px 0 7px; overflow-wrap: anywhere; }
+.student-data p { font-size: 10px; color: #d0d0c8; margin-bottom: 6px; }
+.student-card-meta { display: flex; gap: 35px; padding-bottom: 15px; }
+.student-card-meta div { display: flex; flex-direction: column; gap: 3px; }
+.student-card-meta b { font-size: 9px; font-weight: 500; color: #d8d6cd; }
+.student-card-bottom { position: relative; z-index: 1; }
+.student-card-bottom i { color: var(--gold); font-style: normal; }
+.editing-tip { color: var(--muted); font-size: 10px; margin-top: 22px; }
+.editing-tip span { color: var(--gold); margin-right: 7px; }
+
+.team-section { padding-bottom: 80px; }
+.team-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; }
+.team-member { display: flex; align-items: center; gap: 15px; padding: 20px; background: var(--panel); border: 1px solid var(--line); }
+.team-avatar { width: 46px; height: 46px; flex: 0 0 46px; display: grid; place-items: center; border: 1px solid rgba(199,169,107,.55); color: var(--gold-light); font: 700 12px "Manrope"; }
+.team-member h3 { font: 600 13px "Manrope"; margin: 4px 0; }
+.team-member p { color: var(--muted); font-size: 9px; }
+
+.project-note { padding-top: 10px; padding-bottom: 85px; }
+.note-box { padding: 40px; border: 1px solid rgba(199,169,107,.28); background: radial-gradient(ellipse at top right, rgba(199,169,107,.1), transparent 55%), var(--panel); }
+.note-box h2 { margin: 17px 0; }
+.note-box > p:last-child { color: var(--muted); max-width: 720px; font-size: 12px; line-height: 1.9; }
+.footer { min-height: 82px; border-top: 1px solid var(--line); padding: 20px max(5.5%, calc((100% - var(--max)) / 2)); display: flex; align-items: center; justify-content: space-between; gap: 20px; }
+.footer p, .back-top { color: var(--muted); font-size: 8px; letter-spacing: 1.2px; }
+.back-top { color: var(--gold); }
+
+/* RESPONSIVE */
+@media (max-width: 850px) {
+  .topbar { padding: 0 24px; }
+  .navigation { gap: 15px; }
+  .navigation a { font-size: 10px; }
+  .hero { gap: 25px; }
+  .orbit-one { width: 390px; }
+  .student-grid { gap: 14px; }
+  .student-card { padding: 17px; }
+}
+@media (max-width: 680px) {
+  .topbar { min-height: 70px; flex-wrap: wrap; }
+  .navigation { order: 3; width: 100%; overflow-x: auto; padding: 0 0 13px; }
+  .navigation a { white-space: nowrap; }
+  .top-cta { margin-left: auto; }
+  .hero { grid-template-columns: 1fr; padding-top: 65px; padding-bottom: 95px; }
+  .hero h1 { letter-spacing: -3px; }
+  .hero-art { min-height: 370px; margin-top: 10px; }
+  .intro-grid { grid-template-columns: 1fr; gap: 22px; padding: 40px 0; }
+  .feature-grid { grid-template-columns: 1fr; }
+  .feature { border-right: 0; border-bottom: 1px solid var(--line); min-height: 160px; }
+  .feature:last-child { border-bottom: 0; }
+  .section-heading { align-items: flex-start; flex-direction: column; }
+  .student-grid, .team-grid { grid-template-columns: 1fr; }
+  .section-shell, .page-shell { padding-left: 20px; padding-right: 20px; }
+  .scroll-indicator { left: 20px; }
+  .footer { flex-wrap: wrap; padding: 22px 20px; }
+  .footer p { order: 3; width: 100%; }
+}
+@media (max-width: 390px) {
+  .student-card { padding: 14px; }
+  .student-card-main { gap: 12px; }
+  .student-photo { width: 76px; height: 95px; flex-basis: 76px; }
+  .student-data h3 { font-size: 14px; }
+  .hero-stats { gap: 25px; }
+  .hero-actions { gap: 17px; flex-wrap: wrap; }
+}
+
+/* PRINT: Print only the student cards, one or two per page depending on paper size. */
+@media print {
+  @page { size: A4; margin: 12mm; }
+  body { background: #fff !important; color: #111 !important; }
+  .topbar, .hero, .intro-section, .team-section, .project-note, .footer,
+  .section-topline, .section-heading, .editing-tip { display: none !important; }
+  .cards-section { border: 0; padding: 0; background: #fff !important; }
+  .student-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8mm; }
+  .student-card {
+    min-height: 62mm; break-inside: avoid; page-break-inside: avoid;
+    background: #151916 !important; color: #f3f0e8 !important;
+    -webkit-print-color-adjust: exact; print-color-adjust: exact;
+    box-shadow: none;
+  }
+  .student-card * { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+}
+
+/* ===================================
+   STUDENT GENERATOR FORM
+=================================== */
+
+.generator-panel {
+    background: #111514;
+    border: 1px solid rgba(199,169,107,.3);
+    padding: 30px;
+    margin-bottom: 35px;
+}
+
+.generator-heading h3 {
+    font: 600 27px "Manrope", sans-serif;
+    margin: 12px 0;
+}
+
+.generator-heading h3 span {
+    color: #c7a96b;
+}
+
+.generator-heading p:last-child {
+    color: #999b94;
+    font-size: 12px;
+}
+
+.student-form {
+    margin-top: 25px;
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+.student-form label {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    color: #c7a96b;
+    font-size: 11px;
+}
+
+.student-form input {
+    background: #090a0b;
+    border: 1px solid rgba(199,169,107,.25);
+    padding: 13px;
+    color: #f3f0e8;
+    outline: none;
+    width: 100%;
+}
+
+.student-form input:focus {
+    border-color: #c7a96b;
+}
+
+.student-form input[type="file"] {
+    cursor: pointer;
+}
+
+.full-width {
+    grid-column: 1 / -1;
+}
+
+.photo-preview {
+    margin: 20px 0;
+    width: 110px;
+    height: 120px;
+    border: 1px dashed #c7a96b;
+    color: #999b94;
+    display: grid;
+    place-items: center;
+    text-align: center;
+    font-size: 9px;
+    overflow: hidden;
+}
+
+.photo-preview img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.student-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.student-form button {
+    border: none;
+    cursor: pointer;
+}
+
+.card-actions {
+    display: flex;
+    gap: 10px;
+    margin-top: 16px;
+    position: relative;
+    z-index: 2;
+}
+
+.card-action {
+    border: 1px solid #c7a96b;
+    padding: 8px 15px;
+    background: transparent;
+    color: #e2cc9b;
+    cursor: pointer;
+    font-size: 10px;
+    transition: .2s;
+}
+
+.card-action:hover {
+    background: #c7a96b;
+    color: #090a0b;
+}
+
+.delete-button {
+    border-color: #9d5555;
+    color: #d98c8c;
+}
+
+.delete-button:hover {
+    background: #9d5555;
+    color: white;
+}
+
+/* Individual card printing */
+
+@media print {
+    body.printing-one .student-card {
+        display: none !important;
+    }
+
+    body.printing-one .student-card.print-selected {
+        display: block !important;
+    }
+
+    .card-actions {
+        display: none !important;
+    }
+}
+
+@media(max-width: 600px) {
+    .form-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .generator-panel {
+        padding: 18px;
+    }
+}

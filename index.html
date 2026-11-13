@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Student ID Card Generator - Mini Project">
+  <title>FORMA — Student ID Card Generator</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#home" aria-label="Forma home">
+      <span class="brand-symbol">F</span>
+      <span>FORMA<span class="brand-period">.</span></span>
+    </a>
+    <nav class="navigation" aria-label="Main navigation">
+      <a href="#home">Overview</a>
+      <a href="#features">Features</a>
+      <a href="#cards">Student cards</a>
+      <a href="#team">Our team</a>
+    </nav>
+    <a class="top-cta" href="#cards">Explore cards <span>↗</span></a>
+  </header>
+
+  <main>
+    <section class="hero page-shell" id="home">
+      <div class="hero-content">
+        <p class="eyebrow"><span class="eyebrow-line"></span> MINI PROJECT · PROJECT 03</p>
+        <h1>Identity,<br><span>beautifully</span><br>designed.</h1>
+        <p class="hero-description">
+          A simple and elegant student identity card concept.
+          Organized student information, presented with clarity,
+          consistency and a modern institutional look.
+        </p>
+        <div class="hero-actions">
+          <a class="button button-gold" href="#cards">View ID cards <span>↗</span></a>
+          <a class="text-link" href="#features">Discover the project <span>↓</span></a>
+        </div>
+       
+        <div class="hero-stats">
+          <div><strong>01</strong><span>Project</span></div>
+          <div><strong>HTML</strong><span>Structure</span></div>
+          <div><strong>CSS</strong><span>Visual design</span></div>
+        </div>
+      </div>
+      <div class="hero-art" aria-label="Decorative sample student ID card">
+        <div class="orbit orbit-one"></div>
+        <div class="orbit orbit-two"></div>
+        <article class="id-card hero-id-card">
+          <div class="id-card-top">
+            <div class="college-emblem">U</div>
+            <div class="college-heading">
+              <strong>YOUR INSTITUTION</strong>
+              <span>EXCELLENCE THROUGH LEARNING</span>
+            </div>
+            <span class="card-label">STUDENT</span>
+          </div>
+          <div class="hero-card-body">
+            <div class="photo-placeholder"><span>PHOTO</span></div>
+            <div class="hero-card-details">
+              <span class="mini-label">STUDENT NAME</span>
+              <strong>YOUR NAME HERE</strong>
+              <span class="mini-label">COURSE / DEPARTMENT</span>
+              <b>Computer Science</b>
+              <span class="mini-label">STUDENT ID</span>
+              <b>STU-00001</b>
+            </div>
+          </div>
+          <div class="id-card-footer"><span>VALID THROUGH 2026–27</span><span class="footer-mark">FORMA / 03</span></div>
+        </article>
+        <div class="floating-note"><span class="note-dot"></span> Designed for every student</div>
+        <span class="art-index">IDENTITY SYSTEM / 001</span>
+      </div>
+      <a class="scroll-indicator" href="#features"><span></span> SCROLL TO EXPLORE</a>
+    </section>
+
+    <section class="intro-section section-shell" id="features">
+      <div class="section-topline"><span>01 / THE CONCEPT</span><span>OVERVIEW</span></div>
+      <div class="intro-grid">
+        <h2>One identity.<br><span>One clear standard.</span></h2>
+        <div class="intro-copy">
+          <p>
+            Student ID Card Generator is a web-based project concept
+            that presents student details in a structured digital ID card.
+            It aims to make identity card layouts consistent, readable
+            and easy to prepare.
+          </p>
+          <p>
+            This front-end edition uses HTML for the page structure and
+            CSS for the visual design and print layout. Student details
+            can be added manually in the card template.
+          </p>
+        </div>
+      </div>
+      <div class="feature-grid">
+        <article class="feature">
+          <span class="feature-number">01</span>
+          <div class="feature-icon">✳</div>
+          <h3>Clean identity layout</h3>
+          <p>A consistent card format with a clear hierarchy for student details.</p>
+        </article>
+        <article class="feature">
+          <span class="feature-number">02</span>
+          <div class="feature-icon">▧</div>
+          <h3>Photo-ready space</h3>
+          <p>A dedicated photo area that can be replaced with each student's image.</p>
+        </article>
+        <article class="feature">
+          <span class="feature-number">03</span>
+          <div class="feature-icon">⌑</div>
+          <h3>Print-friendly design</h3>
+          <p>Cards are arranged for a clean printout using browser print settings.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="cards-section section-shell" id="cards">
+      <div class="section-topline"><span>02 / STUDENT DIRECTORY</span><span>EDIT THE PLACEHOLDERS</span></div>
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">THE IDENTITY COLLECTION</p>
+          <h2>Student <span>cards.</span></h2>
+        </div>
+        <p class="section-description">Replace the sample details and photo placeholders below with your team’s student information.</p>
+      </div>
+<!-- l -->
+<div class="generator-panel">
+  <div class="generator-heading">
+    <p class="eyebrow">CREATE A NEW IDENTITY</p>
+    <h3>Generate student card<span>.</span></h3>
+    <p>Enter student information and upload a photograph.</p>
+  </div>
+
+  <form id="studentForm" class="student-form">
+    <div class="form-grid">
+      <label>
+        Student Name
+        <input type="text" id="studentName" placeholder="Enter full name" required>
+      </label>
+
+      <label>
+        Roll Number / Student ID
+        <input type="text" id="studentRoll" placeholder="Enter roll number" required>
+      </label>
+
+      <label>
+        Course
+        <input type="text" id="studentCourse" placeholder="Enter course" required>
+      </label>
+
+      <label>
+        Department
+        <input type="text" id="studentDepartment" placeholder="Enter department" required>
+      </label>
+
+      <label>
+        Academic Year
+        <input type="text" id="academicYear" placeholder="2026-2027" required>
+      </label>
+
+      <label>
+        Year / Semester
+        <input type="text" id="studentSemester" placeholder="e.g. 2nd Year">
+      </label>
+
+      <label class="full-width">
+        Upload Student Photograph
+        <input type="file" id="studentPhoto" accept="image/*">
+      </label>
+    </div>
+
+    <div class="photo-preview" id="photoPreview">
+      Photo preview will appear here
+    </div>
+
+    <button type="submit" class="button button-gold">
+      Generate ID Card ↗
+    </button>
+  </form>
+</div>
+<!-- l -->
+      <div class="student-grid">
+        <!-- STUDENT CARD 01: Replace every placeholder with Student 1 details.
+             To add another student, copy one complete article.student-card block. -->
+        <article class="student-card">
+          <div class="student-card-head">
+            <div class="institution-lockup"><span class="small-emblem">U</span><div><b>YOUR INSTITUTION</b><small>STUDENT IDENTITY CARD</small></div></div>
+            <span class="serial">NO. 001</span>
+          </div>
+          <div class="student-card-main">
+            <div class="student-photo"><span>ADD<br>PHOTO</span></div>
+            <div class="student-data">
+              <span class="field-label">STUDENT NAME</span>
+              <h3>Student Name</h3>
+              <span class="field-label">STUDENT ID / ROLL NO.</span>
+              <p>STU-00001</p>
+              <span class="field-label">COURSE / DEPARTMENT</span>
+              <p>Course / Department</p>
+            </div>
+          </div>
+          <div class="student-card-meta">
+            <div><span class="field-label">ACADEMIC YEAR</span><b>2026–2027</b></div>
+            <div><span class="field-label">YEAR / SEMESTER</span><b>Year / Semester</b></div>
+          </div>
+          <div class="student-card-bottom"><span>AUTHORIZED STUDENT</span><span>FORMA <i>◆</i></span></div>
+        </article>
+
+        <article class="student-card">
+          <div class="student-card-head">
+            <div class="institution-lockup"><span class="small-emblem">U</span><div><b>YOUR INSTITUTION</b><small>STUDENT IDENTITY CARD</small></div></div>
+            <span class="serial">NO. 002</span>
+          </div>
+          <div class="student-card-main">
+            <div class="student-photo"><span>ADD<br>PHOTO</span></div>
+            <div class="student-data">
+              <span class="field-label">STUDENT NAME</span>
+              <h3>Student Name</h3>
+              <span class="field-label">STUDENT ID / ROLL NO.</span>
+              <p>STU-00002</p>
+              <span class="field-label">COURSE / DEPARTMENT</span>
+              <p>Course / Department</p>
+            </div>
+          </div>
+          <div class="student-card-meta">
+            <div><span class="field-label">ACADEMIC YEAR</span><b>2026–2027</b></div>
+            <div><span class="field-label">YEAR / SEMESTER</span><b>Year / Semester</b></div>
+          </div>
+          <div class="student-card-bottom"><span>AUTHORIZED STUDENT</span><span>FORMA <i>◆</i></span></div>
+        </article>
+
+        <!-- STUDENT CARD 03: Replace with Student 3 details. -->
+        <article class="student-card">
+          <div class="student-card-head">
+            <div class="institution-lockup"><span class="small-emblem">U</span><div><b>YOUR INSTITUTION</b><small>STUDENT IDENTITY CARD</small></div></div>
+            <span class="serial">NO. 003</span>
+          </div>
+          <div class="student-card-main">
+            <div class="student-photo"><span>ADD<br>PHOTO</span></div>
+            <div class="student-data">
+              <span class="field-label">STUDENT NAME</span>
+              <h3>Student Name</h3>
+              <span class="field-label">STUDENT ID / ROLL NO.</span>
+              <p>STU-00003</p>
+              <span class="field-label">COURSE / DEPARTMENT</span>
+              <p>Course / Department</p>
+            </div>
+          </div>
+          <div class="student-card-meta">
+            <div><span class="field-label">ACADEMIC YEAR</span><b>2026–2027</b></div>
+            <div><span class="field-label">YEAR / SEMESTER</span><b>Year / Semester</b></div>
+          </div>
+          <div class="student-card-bottom"><span>AUTHORIZED STUDENT</span><span>FORMA <i>◆</i></span></div>
+        </article>
+      </div>
+      <p class="editing-tip"><span>✦</span> TIP: To add more students, copy a complete student-card block in index.html and update its details and serial number.</p>
+    </section>
+
+    <section class="team-section section-shell" id="team">
+      <div class="section-topline"><span>03 / THE PEOPLE</span><span>TEAM DETAILS</span></div>
+      <div class="section-heading">
+        <div><p class="eyebrow">BUILT TOGETHER</p><h2>Meet the <span>team.</span></h2></div>
+        <p class="section-description">Add your team members’ names, roles and student IDs. Keep this section aligned with the details on their cards.</p>
+      </div>
+      <div class="team-grid">
+        <!-- TEAM MEMBER: Duplicate this block for every team member. -->
+        <article class="team-member"><div class="team-avatar">01</div><div><span class="field-label">TEAM MEMBER 01</span><h3>Member Name</h3><p>Role / Responsibility</p></div></article>
+        <article class="team-member"><div class="team-avatar">02</div><div><span class="field-label">TEAM MEMBER 02</span><h3>Member Name</h3><p>Role / Responsibility</p></div></article>
+        <article class="team-member"><div class="team-avatar">03</div><div><span class="field-label">TEAM MEMBER 03</span><h3>Member Name</h3><p>Role / Responsibility</p></div></article>
+      </div>
+    </section>
+
+    <section class="project-note section-shell">
+      <div class="note-box">
+        <p class="eyebrow">PROJECT SCOPE</p>
+        <h2>A thoughtful front end.<br><span>Ready for your details.</span></h2>
+        <p>This version is a static HTML and CSS prototype. The assignment’s automatic form submission, image upload and instant card generation require JavaScript, which is intentionally not included in this version.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <a class="brand" href="#home"><span class="brand-symbol">F</span><span>FORMA<span class="brand-period">.</span></span></a>
+    <p>STUDENT ID CARD GENERATOR · MINI PROJECT 03</p>
+    <a href="#home" class="back-top">BACK TO TOP ↑</a>
+  </footer>
+
+<script src="script.js"></script>
+</body>
+</html>
+
+</body>
+</html>
